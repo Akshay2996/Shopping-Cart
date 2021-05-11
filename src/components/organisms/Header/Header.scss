@@ -2,12 +2,12 @@
 
 $nav-text-color: #4d4d4d;
 
-@mixin basic-nav-styling($font-size, $align-flex-child, $margin-right) {
+@mixin basic-nav-styling($font-size, $align-flex-child, $padding-left, $margin-right) {
     display: inline-block;
-    padding-left: 2.5rem;
     color: $nav-text-color;
     font-size: $font-size;
     align-self: $align-flex-child;
+    padding-left: $padding-left;
 
     &__link {
         margin-right: $margin-right;
@@ -31,16 +31,27 @@ $nav-text-color: #4d4d4d;
         max-width: $max-width-screen;
         margin: 0 auto;
         min-height: 10vh;
-    }
+    
+        &__nav__items {
+            @include basic-nav-styling(1rem, end, 2.5rem, 2rem);
+            padding-bottom: 10px;
+            flex-grow: 1;
+        }
+    
+        &__nav-wrapper{
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
 
-    .header__nav__items {
-        @include basic-nav-styling(1rem, end, 2rem);
-        padding-bottom: 10px;
-        flex-grow: 1;
-    }
+            @media screen and (max-width: $breakpoint-mobile) {
+                flex-direction: row;
+            }
 
-    .header__nav__login {
-        @include basic-nav-styling(0.9rem, start, 1rem);
-        padding-top: 5px;
+            &__login {
+                @include basic-nav-styling(0.85rem, start, 1.5rem, 0.5rem);
+                padding-top: 5px;
+            }
+        }
     }
 }
