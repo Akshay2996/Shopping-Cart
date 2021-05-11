@@ -1,5 +1,5 @@
 let path = require('path');
-let HtmlWebpackPlugin =  require('html-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry : './src/index.js',

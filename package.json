@@ -3,12 +3,6 @@
   "version": "1.0.0",
   "description": "This is the base folder for the shopping cart exercise. You will have all the static assets and mock server responses available in this repo.",
   "main": "index.js",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "create": "webpack",
