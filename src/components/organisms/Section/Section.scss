@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 15vh;
+    padding: 2rem 0;
+    border-bottom: 1px solid #9e9e9e;
+
+    &__content{
+        flex: 1;
+    }
+
+    &:nth-last-child(1){
+        border-bottom: none;
+    }
+}
