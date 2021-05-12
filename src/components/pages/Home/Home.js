@@ -11,7 +11,7 @@ export default function Home() {
     const filteredCategory = Categories.filter(category => category.enabled);
 
     return (
-        <main className="wrapper">
+        <main className="home-container">
             {filteredCategory.map((category) => 
                 <Section key={category.id} url={category.imageUrl} heading={category.name} text={category.description} button={category.key} order={category.order}
             />)}
