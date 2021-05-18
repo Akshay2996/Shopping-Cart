@@ -1,10 +1,13 @@
+@import "../../../styles/variables";
+
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 15vh;
     padding: 2rem 0;
-    border-bottom: 1px solid #9e9e9e;
+    max-width: $max-width-screen;
+    box-shadow: 0px 30px 20px -30px rgba(161,159,159,1);
 
     &__content{
         flex: 1;
