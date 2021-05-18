@@ -4,8 +4,6 @@ import './Logo.scss';
 
 export default function Logo() {
     return (
-        <main className="logo">
-            <img src={logo} className="logo__image" alt="Logo Image" />
-        </main>
+        <img src={logo} className="logo-image" alt="Logo Image" />
     )
 }

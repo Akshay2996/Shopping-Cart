@@ -1,20 +1,17 @@
 @import '../../../styles/variables';
 
-.logo{
-    padding: 5px 0;
+.logo-image {
+    margin: 5px 0;
+    width: 135px;
+    height: 65px;
 
-    &__image{
-        width: 135px;
-        height: 65px;
+    @media screen and (max-width: $breakpoint-tablet) {
+        width: 120px;
+        height: 56px;
+    }
 
-        @media screen and (max-width: $breakpoint-tablet) {
-            width: 120px;
-            height: 56px;
-        }
-
-        @media screen and (max-width: $breakpoint-mobile) {
-            width: 90px;
-            height: 44px;
-        }
+    @media screen and (max-width: $breakpoint-mobile) {
+        width: 90px;
+        height: 44px;
     }
 }
