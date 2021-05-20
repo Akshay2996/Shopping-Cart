@@ -1,6 +1,6 @@
 @import '../../../styles/variables';
 
-.cart-wrapper{
+.cart-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,15 +10,11 @@
     height: 100%;
     object-fit: contain;
 
-    @media screen and (min-width: $breakpoint-mobile) {
-        padding: 5px 0;
-    }
-
-    &__image{
+    &__image {
         width: 40px;
     }
 
-    &__text{
+    &__text {
         color: black;
         font-size: $text-font-size;
         margin-right: 5px;

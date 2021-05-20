@@ -1,29 +1,11 @@
 @import '../../../styles/variables';
+@import '../../../styles/mixin';
 
-$nav-text-color: #4d4d4d;
-
-@mixin basic-nav-styling($font-size, $align-flex-child, $padding-left, $margin-right) {
-    display: inline-block;
-    color: $nav-text-color;
-    font-size: $font-size;
-    align-self: $align-flex-child;
-    padding-left: $padding-left;
-
-    &__link {
-        margin-right: $margin-right;
-        font-weight: 600;
-    }
-
-    @media screen and (max-width: $breakpoint-mobile){
-        display: none;
-    }
-}
-
-.header{
+.header {
     width: 100%;
-    box-shadow:0px 0px 10px 0px #9e9e9e;
+    box-shadow: 0px 0px 10px 0px #9e9e9e;
 
-    &__sub-container{
+    &__sub-container {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -32,13 +14,19 @@ $nav-text-color: #4d4d4d;
         margin: 0 auto;
         min-height: 10vh;
     
-        &__nav__items {
-            @include basic-nav-styling(1rem, end, 2.5rem, 2rem);
-            padding-bottom: 10px;
+        &__nav-items {
+            padding-bottom: 0.8rem;
+            display: flex;
             flex-grow: 1;
+            align-items: flex-end;
+            @include header-nav-styling(1rem, 4.5rem, 2rem);
+
+            @media screen and (max-width: $breakpoint-tablet) {
+                padding-left: 2.5rem;
+            }
         }
     
-        &__nav-wrapper{
+        &__nav-wrapper {
             min-height: 100%;
             display: flex;
             flex-direction: column;
@@ -49,8 +37,9 @@ $nav-text-color: #4d4d4d;
             }
 
             &__login {
-                @include basic-nav-styling(0.85rem, start, 1.5rem, 0.5rem);
+                display: inline-block;
                 padding-top: 5px;
+                @include header-nav-styling($text-font-size, 1.5rem, 0.5rem);
             }
         }
     }

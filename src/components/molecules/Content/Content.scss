@@ -25,7 +25,7 @@
 
     &__text{
         text-align: center;
-        font-size: 0.8rem;
+        font-size: $small-font-size;
         @include text-styling(0.8rem);
     }
 }
