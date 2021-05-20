@@ -1,0 +1,17 @@
+// Global mixin file
+@import './variables';
+
+@mixin header-nav-styling($font-size, $padding-left, $margin-right) {
+    color: $nav-text-color;
+    font-size: $font-size;
+    padding-left: $padding-left;
+
+    &__link {
+        margin-right: $margin-right;
+        font-weight: 600;
+    }
+
+    @media screen and (max-width: $breakpoint-mobile){
+        display: none;
+    }
+}

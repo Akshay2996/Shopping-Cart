@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #fff;
+  }
+  
+  h1,h2,h3,h4,h5,h6 {
+    color: #212121;
+  }
+  
+  p {
+    color: #212121;
+    font-size: 16px;
+  }
+  
+  a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #505050;
+  }
