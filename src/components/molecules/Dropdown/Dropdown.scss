@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    background-color: #e22b62;
+    width: 100%;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+        display: none;
+    }
+
+    &__button {
+        display: flex;
+        justify-content: space-between;
+        border: none;
+        color: #fff;
+        outline: none;
+        cursor: pointer;
+        background-color: #e22b62;
+        padding: 5px;
+        font-size: $text-font-size;
+    }
+
+    &__content {
+        display: none;
+        cursor: pointer;
+        padding: 5px;
+        font-size: $text-font-size;
+        color: #fff;
+        border-bottom: 1px solid #f2f7f5;
+
+        &:hover {
+            background-color: rgba(#a1193d, 0.6);
+        }
+
+        &:nth-last-child(1){
+            border: none;
+        }
+    }
+}
+
+.show {
+    display: block;
+}

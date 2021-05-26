@@ -9,8 +9,7 @@
 
     &__text{
         color: $text-color;
-        font-size: 0.9rem;
-        text-align: center;
+        font-size: $text-font-size;
 
         @media (max-width: $breakpoint-mobile){
             font-size: 0.7rem;

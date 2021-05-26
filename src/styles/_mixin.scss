@@ -1,6 +1,7 @@
 // Global mixin file
 @import './variables';
 
+// Header mixin
 @mixin header-nav-styling($font-size, $padding-left, $margin-right) {
     color: $nav-text-color;
     font-size: $font-size;
@@ -8,10 +9,37 @@
 
     &__link {
         margin-right: $margin-right;
-        font-weight: 600;
+        font-weight: bold;
     }
 
-    @media screen and (max-width: $breakpoint-mobile){
+    @media screen and (max-width: $breakpoint-mobile) {
         display: none;
+    }
+}
+
+// Login/Register mixin
+@mixin signup-styling() {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+
+    max-width: $max-width-screen;
+    margin: 0 auto;
+
+    @media screen and (max-width: $breakpoint-mobile) {
+        display: none;
+    }
+
+    &__article {
+        flex: 4;
+
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+
+    &__form {
+        flex: 5;
     }
 }
