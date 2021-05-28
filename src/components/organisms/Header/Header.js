@@ -4,7 +4,7 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 import Cart from "../../molecules/Cart/Cart";
 
-export default function Header() {
+export default function Header({ handleCart }) {
   return (
     <header className="header">
       <div className="header__sub-container">
@@ -37,7 +37,7 @@ export default function Header() {
               Register
             </Link>
           </nav>
-          <Cart />
+          <Cart handleCart={handleCart} />
         </div>
       </div>
     </header>

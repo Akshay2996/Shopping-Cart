@@ -1,57 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Switch, useHistory, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Footer from './components/organisms/Footer/Footer';
-import Header from './components/organisms/Header/Header';
-import Home from './components/pages/Home/Home';
-import Products from './components/pages/Products/Products';
-import Signin from './components/pages/Signin/Signin';
-import Register from './components/pages/Register/Register';
-import CartPage from './components/pages/CartPage/Cartpage';
+import Footer from "./components/organisms/Footer/Footer";
+import Header from "./components/organisms/Header/Header";
+import Home from "./components/pages/Home/Home";
+import Products from "./components/pages/Products/Products";
+import Signin from "./components/pages/Signin/Signin";
+import Register from "./components/pages/Register/Register";
+import CartPage from "./components/pages/CartPage/Cartpage";
 
-import Categories from '../server/categories/index.get.json';
-import ProductValue from '../server/products/index.get.json';
-
+import ProductContextProvider from "./contexts/ProductContext";
+import GlobalContextProvider from "./contexts/GlobalContext";
+import CartModal from "./components/organisms/CartModal/CartModal";
 
 export default function App() {
-    const history = useHistory();
-    const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const handleCart = () => {
+    setIsOpen(!isOpen);
+  };
+  return (
+    <GlobalContextProvider>
+      <Header handleCart={handleCart} />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props) => (
+            <ProductContextProvider>
+              <Home {...props} />
+            </ProductContextProvider>
+          )}
+        />
+        <Route
+          exact
+          path="/products"
+          render={(props) => (
+            <ProductContextProvider>
+              <Products {...props} />
+            </ProductContextProvider>
+          )}
+        />
 
-    const [filteredProduct, setFilteredProduct] = useState(ProductValue);
+        <Route exact path="/signin" component={Signin} />
+        <Route exact path="/register" component={Register} />
 
-    const filteredCategory = Categories
-                                .filter(category => category.enabled)
-                                .sort((a, b) => a.order - b.order);
-
-    useEffect(() => {
-        if(!location.search) {
-            setFilteredProduct(ProductValue);
-        }
-    }, [location]);
-
-    function handleProduct(id) {
-        setFilteredProduct(ProductValue.filter((product) => product.category === id));
-        history.push({
-            pathname: `/products`,
-            search: `?query=${id}`
-        });
-    }
-
-    return(
-        <>
-            <Header />
-            <Switch>
-                <Route exact path="/" render={() => (
-                    <Home filteredCategory={filteredCategory} handleProduct={handleProduct} />
-                )} />
-                <Route exact path="/products" render={() => (
-                    <Products filteredCategory={filteredCategory} filteredProduct={filteredProduct} handleProduct={handleProduct} />
-                )} />
-                <Route exact path="/signin" component={Signin} />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/cartpage" component={CartPage} />
-            </Switch>
-            <Footer />
-        </>
-    );
+        <Route
+          exact
+          path="/cartpage"
+          render={(props) => <CartPage handleCart={handleCart} {...props} />}
+        />
+      </Switch>
+      <Footer />
+      {isOpen ? <CartModal handleCart={handleCart} /> : ""}
+    </GlobalContextProvider>
+  );
 }

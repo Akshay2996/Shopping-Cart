@@ -57,9 +57,9 @@ typings/
 # dotenv environment variables file
 .env
 
-# next.js build output
-.next
-
 # Bundle JS/CSS folder
 dist
 .DS_Store
+
+# VsCode settings
+.vscode
