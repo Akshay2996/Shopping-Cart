@@ -28,7 +28,7 @@
     margin: 0 auto;
 
     @media screen and (max-width: $breakpoint-mobile) {
-        display: none;
+        flex-direction: column;
     }
 
     &__article {
@@ -37,6 +37,11 @@
         display: flex;
         flex-direction: column;
         padding: 0 1rem;
+
+        @media screen and (max-width: $breakpoint-mobile) {
+            padding-bottom: 3rem;
+            padding-left: 1rem;
+        }
     }
 
     &__form {
