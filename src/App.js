@@ -7,7 +7,7 @@ import Home from "./components/pages/Home/Home";
 import Products from "./components/pages/Products/Products";
 import Signin from "./components/pages/Signin/Signin";
 import Register from "./components/pages/Register/Register";
-import CartPage from "./components/pages/CartPage/Cartpage";
+import CartPage from "./components/pages/CartPage/CartPage";
 
 import { GlobalContext } from "./contexts/GlobalContext";
 import CartModal from "./components/organisms/CartModal/CartModal";
