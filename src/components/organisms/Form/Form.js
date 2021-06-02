@@ -18,7 +18,7 @@ export default function Form({ className = "", inputLabel, button }) {
           inputId={input.inputId}
         />
       ))}
-      <Button button={button} className={"form__login-button"} />
+      <Button className={"form__login-button"}>{button}</Button>
     </form>
   );
 }
