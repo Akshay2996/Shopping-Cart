@@ -28,7 +28,7 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "static/images", to: "assets" },
+        { from: "static/images", to: "static/images" },
         { from: "_redirects", to: "" },
       ],
     }),
