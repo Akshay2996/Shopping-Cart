@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./EmptyCart.scss";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Button from "../../atoms/Button/Button";
 import { useMediaQuery } from "../../../utils/useMediaQuery";
+import { GlobalContext } from "../../../contexts/GlobalContext";
 
-export default function EmptyCart({ handleCart }) {
+export default function EmptyCart() {
   const browserWidth = useMediaQuery("(min-width: 769px)");
   const history = useHistory();
+  const {
+    cartItems: { cartOpen },
+    dispatch,
+  } = useContext(GlobalContext);
 
   const goToProducts = () => {
     if (browserWidth) {
-      handleCart();
+      dispatch({
+        type: "HANDLE_CART",
+        cartOpen: !cartOpen,
+      });
       history.push("/products");
     } else {
       history.push("/products");
@@ -29,10 +37,11 @@ export default function EmptyCart({ handleCart }) {
       </div>
       <footer className="empty-cart__footer">
         <Button
-          button={"Start Shopping"}
           className={"empty-cart__footer__start-button"}
           onClick={() => goToProducts()}
-        />
+        >
+          Start Shopping
+        </Button>
       </footer>
     </section>
   );

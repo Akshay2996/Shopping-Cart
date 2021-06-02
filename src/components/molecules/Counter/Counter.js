@@ -22,17 +22,13 @@ export default function Counter({ quantity, price, id }) {
 
   return (
     <div className="counter">
-      <Button
-        onClick={() => removeItem()}
-        className={"counter__button"}
-        button={"-"}
-      />
+      <Button onClick={() => removeItem()} className={"counter__button"}>
+        -
+      </Button>
       <p className="counter__text">{quantity}</p>
-      <Button
-        onClick={() => editItem()}
-        className={"counter__button"}
-        button={"+"}
-      />
+      <Button onClick={() => editItem()} className={"counter__button"}>
+        +
+      </Button>
       <p className="counter__multiply">&#10005;</p>
       <p className="counter__text">{price}</p>
     </div>

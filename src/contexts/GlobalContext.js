@@ -4,6 +4,7 @@ import { cartReducers } from "../reducers/cartReducers";
 const initialState = {
   count: 0,
   products: {},
+  cartOpen: false,
 };
 
 export const GlobalContext = createContext(initialState);

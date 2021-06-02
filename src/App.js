@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Footer from "./components/organisms/Footer/Footer";
@@ -9,36 +9,23 @@ import Signin from "./components/pages/Signin/Signin";
 import Register from "./components/pages/Register/Register";
 import CartPage from "./components/pages/CartPage/Cartpage";
 
-import ProductContextProvider from "./contexts/ProductContext";
-import GlobalContextProvider from "./contexts/GlobalContext";
+import { GlobalContext } from "./contexts/GlobalContext";
 import CartModal from "./components/organisms/CartModal/CartModal";
 
 export default function App() {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleCart = () => {
-    setIsOpen(!isOpen);
-  };
+  const {
+    cartItems: { cartOpen },
+  } = useContext(GlobalContext);
+
   return (
-    <GlobalContextProvider>
-      <Header handleCart={handleCart} />
+    <>
+      <Header />
       <Switch>
-        <Route
-          exact
-          path="/"
-          render={(props) => (
-            <ProductContextProvider>
-              <Home {...props} />
-            </ProductContextProvider>
-          )}
-        />
+        <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route
           exact
           path="/products"
-          render={(props) => (
-            <ProductContextProvider>
-              <Products {...props} />
-            </ProductContextProvider>
-          )}
+          render={(props) => <Products {...props} />}
         />
 
         <Route exact path="/signin" component={Signin} />
@@ -47,11 +34,11 @@ export default function App() {
         <Route
           exact
           path="/cartpage"
-          render={(props) => <CartPage handleCart={handleCart} {...props} />}
+          render={(props) => <CartPage {...props} />}
         />
       </Switch>
       <Footer />
-      {isOpen ? <CartModal handleCart={handleCart} /> : ""}
-    </GlobalContextProvider>
+      {cartOpen ? <CartModal cartOpen={cartOpen} /> : ""}
+    </>
   );
 }

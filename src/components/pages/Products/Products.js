@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
-import { ProductContext } from "../../../contexts/ProductContext";
+import React from "react";
 import { useMediaQuery } from "../../../utils/useMediaQuery";
+import useProducts from "../../../utils/useProducts";
 import Dropdown from "../../molecules/Dropdown/Dropdown";
 import Sidebar from "../../molecules/Sidebar/Sidebar";
 import Card from "../../organisms/Card/Card";
 import "./Products.scss";
 
 export default function Products() {
-  const { filteredCategory, filteredProduct, handleProduct } =
-    useContext(ProductContext);
+  const { filteredCategory, filteredProduct, handleProduct } = useProducts();
 
   const browserWidth = useMediaQuery("(max-width: 480px)");
 

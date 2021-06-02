@@ -6,9 +6,10 @@ import { useMediaQuery } from "../../../utils/useMediaQuery";
 import Image from "../../atoms/Image/Image";
 import "./Cart.scss";
 
-export default function Cart({ handleCart }) {
+export default function Cart() {
   const {
-    cartItems: { count },
+    cartItems: { count, cartOpen },
+    dispatch,
   } = useContext(GlobalContext);
 
   const countItem = count === 1 ? `${count} item` : `${count} items`;
@@ -17,7 +18,9 @@ export default function Cart({ handleCart }) {
   const browserWidth = useMediaQuery("(min-width: 769px)");
 
   const handleBrowserWidth = () => {
-    browserWidth ? handleCart() : history.push("/cartpage");
+    browserWidth
+      ? dispatch({ type: "HANDLE_CART", cartOpen: !cartOpen })
+      : history.push("/cartpage");
   };
 
   return (

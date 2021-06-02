@@ -64,6 +64,8 @@
       font-size: $text-font-size;
       width: 95%;
       padding: 0.7rem 0.5rem;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

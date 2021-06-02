@@ -36,6 +36,12 @@ export const cartReducers = (state, action) => {
       };
     }
 
+    case "HANDLE_CART":
+      return {
+        ...state,
+        cartOpen: action.cartOpen,
+      };
+
     default:
       return state;
   }

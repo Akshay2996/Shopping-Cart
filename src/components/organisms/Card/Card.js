@@ -48,16 +48,18 @@ export default function Card({ name, imageUrl, price, stock, text, id }) {
             <p className="card-container__section__price">MRP Rs.{price}</p>
             <Button
               onClick={() => addItemToCart()}
-              button={"Buy Now"}
               className={"card-container__section__buy-button"}
-            />
+            >
+              Buy Now
+            </Button>
           </>
         ) : (
           <Button
             onClick={() => addItemToCart()}
-            button={`Buy Now @ Rs.${price}`}
             className={"card-container__section__buy-button"}
-          />
+          >
+            Buy Now @ Rs.{price}
+          </Button>
         )}
       </section>
     </section>
