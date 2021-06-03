@@ -4,6 +4,7 @@ import CartImage from "../../../../static/images/cart.svg";
 import { GlobalContext } from "../../../contexts/GlobalContext";
 import { useMediaQuery } from "../../../utils/useMediaQuery";
 import Image from "../../atoms/Image/Image";
+import CartModal from "../../organisms/CartModal/CartModal";
 import "./Cart.scss";
 
 export default function Cart() {
@@ -38,6 +39,7 @@ export default function Cart() {
         />
         <p className="cart-wrapper__text">{countItem}</p>
       </div>
+      {cartOpen ? <CartModal cartOpen={cartOpen} /> : ""}
     </>
   );
 }

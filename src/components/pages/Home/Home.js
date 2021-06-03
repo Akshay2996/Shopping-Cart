@@ -5,7 +5,8 @@ import Section from "../../organisms/Section/Section";
 import "./Home.scss";
 
 export default function Home() {
-  const { filteredCategory } = useProducts();
+  const { filteredCategory, handleProduct } = useProducts();
+  // console.log(handleProduct);
 
   return (
     <main className="home-container">
@@ -19,6 +20,7 @@ export default function Home() {
           text={category.description}
           button={category.key}
           order={category.order}
+          handleProduct={handleProduct}
         />
       ))}
     </main>
