@@ -63,13 +63,4 @@
   &::-webkit-scrollbar-track {
     background-color: $background-color;
   }
-
-  & {
-    // For Internet Explorer
-    scrollbar-face-color: $foreground-color;
-    scrollbar-track-color: $background-color;
-
-    // For Firefox
-    scrollbar-color: $foreground-color $background-color;
-  }
 }
