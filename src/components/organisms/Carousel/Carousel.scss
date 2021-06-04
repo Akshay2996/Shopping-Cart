@@ -89,7 +89,6 @@
       }
 
       &:hover {
-        background-color: #5c5c5c;
         transform: scale(1.2);
         transition: 0.2s ease;
       }
@@ -101,4 +100,9 @@
   opacity: 1;
   transition: 1s;
   transform: scale(1);
+}
+
+.dots-active {
+  background-color: #5c5c5c;
+  transform: scale(1.1);
 }

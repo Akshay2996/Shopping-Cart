@@ -5,7 +5,9 @@ import Image from "../../atoms/Image/Image";
 
 export default function Carousel() {
   const [current, setCurrent] = useState(1);
-  const [touchPosition, setTouchPosition] = useState(null);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
   const length = ImageData.length;
 
   const handleSlide = (slideOrder) => {
@@ -13,29 +15,21 @@ export default function Carousel() {
   };
 
   const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
+    setTouchStart(e.targetTouches[0].clientX);
   };
 
   const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
 
-    if (touchDown === null) {
-      return;
-    }
-
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
-
-    if (diff > 10) {
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 15) {
       handleSlide(current === length ? 1 : current + 1);
     }
 
-    if (diff < -10) {
+    if (touchStart - touchEnd < -15) {
       handleSlide(current === 1 ? length : current - 1);
     }
-
-    setTouchPosition(null);
   };
 
   return (
@@ -51,6 +45,7 @@ export default function Carousel() {
             }
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             {data.order === current && (
               <Image
@@ -78,7 +73,11 @@ export default function Carousel() {
         {ImageData.map((data) => (
           <button
             key={data.id}
-            className="carousel__nav__dots"
+            className={
+              data.order === current
+                ? "carousel__nav__dots dots-active"
+                : "carousel__nav__dots"
+            }
             onClick={() => handleSlide(data.order)}
             aria-label={data.bannerImageAlt}
           ></button>
