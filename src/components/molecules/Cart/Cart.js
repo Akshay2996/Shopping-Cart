@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import CartImage from "../../../../static/images/cart.svg";
 import { GlobalContext } from "../../../contexts/GlobalContext";
@@ -12,6 +12,14 @@ export default function Cart() {
     cartItems: { count, cartOpen },
     dispatch,
   } = useContext(GlobalContext);
+
+  useEffect(() => {
+    if (cartOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [cartOpen]);
 
   const countItem = count === 1 ? `${count} item` : `${count} items`;
 
