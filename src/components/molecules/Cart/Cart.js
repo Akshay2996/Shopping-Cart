@@ -32,6 +32,10 @@ export default function Cart() {
       : history.push("/cartpage");
   };
 
+  const handleOnKeyPress = (e) => {
+    e.key === "Enter" && handleBrowserWidth();
+  };
+
   return (
     <>
       <div
@@ -39,6 +43,8 @@ export default function Cart() {
         onClick={() => {
           handleBrowserWidth();
         }}
+        tabIndex={0}
+        onKeyPress={handleOnKeyPress}
       >
         <Image
           source={CartImage}
