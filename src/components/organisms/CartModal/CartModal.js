@@ -17,15 +17,13 @@ export default function CartModal({ cartOpen }) {
 
   const keyDownHandler = (e) => {
     const modal = document.querySelector("#portal");
-    console.log(modal);
 
-    const focusableElements = `button, a[href], input, select`;
+    const focusableElements = modal.querySelectorAll(
+      `button, a[href], input, select, textarea`
+    );
 
-    const firstElement = modal.querySelectorAll(focusableElements)[0];
-    console.log(firstElement);
-    const focusableContent = modal.querySelectorAll(focusableElements);
-    const lastElement = focusableContent[focusableContent.length - 1];
-    console.log(lastElement);
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
 
     if (e.key !== "Tab") return;
 
