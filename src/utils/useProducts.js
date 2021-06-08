@@ -15,7 +15,12 @@ export default function useProducts() {
   const [filteredProduct, setFilteredProduct] = useState(Products);
 
   function handleProduct(id) {
-    history.push(`/products/${id}`);
+    if (id) {
+      history.push(`/products/${id}`);
+    } else {
+      history.push(`/products`);
+    }
+
     window.scrollTo(0, 0);
   }
 

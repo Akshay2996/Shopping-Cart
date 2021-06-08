@@ -41,7 +41,9 @@ export default function Card({ name, imageUrl, price, stock, text, id }) {
       <figure className="card-container__image">
         <Image source={imageUrl} alt="Fruit Pic" className={"product-image"} />
       </figure>
-      <p className="card-container__text">{text}</p>
+      <p className="card-container__text" title={text}>
+        {text}
+      </p>
       <section className="card-container__section">
         {browserWidth ? (
           <>
