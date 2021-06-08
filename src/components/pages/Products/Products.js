@@ -15,8 +15,9 @@ export default function Products() {
     <main className="product-container">
       {browserWidth ? (
         <Dropdown
-          filteredCategory={filteredCategory}
+          items={[...filteredCategory, { id: "", name: "All Products" }]}
           handleProduct={handleProduct}
+          filteredProduct={filteredProduct}
         />
       ) : (
         <Sidebar
