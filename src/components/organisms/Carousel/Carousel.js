@@ -16,6 +16,7 @@ export default function Carousel() {
 
   const handleTouchStart = (e) => {
     setTouchStart(e.targetTouches[0].clientX);
+    setTouchEnd(0);
   };
 
   const handleTouchMove = (e) => {
@@ -23,11 +24,11 @@ export default function Carousel() {
   };
 
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 15) {
+    if (touchEnd && touchStart - touchEnd > 15) {
       handleSlide(current === length ? 1 : current + 1);
     }
 
-    if (touchStart - touchEnd < -15) {
+    if (touchEnd && touchStart - touchEnd < -15) {
       handleSlide(current === 1 ? length : current - 1);
     }
   };
