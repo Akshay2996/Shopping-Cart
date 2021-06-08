@@ -4,6 +4,7 @@ import CartImage from "../../../../static/images/cart.svg";
 import { GlobalContext } from "../../../contexts/GlobalContext";
 import { useMediaQuery } from "../../../utils/useMediaQuery";
 import Image from "../../atoms/Image/Image";
+import Modal from "../../atoms/Modal/Modal";
 import CartModal from "../../organisms/CartModal/CartModal";
 import "./Cart.scss";
 
@@ -16,9 +17,9 @@ export default function Cart() {
   useEffect(() => {
     if (cartOpen) {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
     }
+
+    return () => (document.body.style.overflow = "unset");
   }, [cartOpen]);
 
   const countItem = count === 1 ? `${count} item` : `${count} items`;
@@ -53,7 +54,13 @@ export default function Cart() {
         />
         <p className="cart-wrapper__text">{countItem}</p>
       </div>
-      {cartOpen ? <CartModal cartOpen={cartOpen} /> : ""}
+      {cartOpen ? (
+        <Modal>
+          <CartModal cartOpen={cartOpen} />{" "}
+        </Modal>
+      ) : (
+        ""
+      )}
     </>
   );
 }
