@@ -14,14 +14,6 @@ export default function Cart() {
     dispatch,
   } = useContext(GlobalContext);
 
-  useEffect(() => {
-    if (cartOpen) {
-      document.body.style.overflow = "hidden";
-    }
-
-    return () => (document.body.style.overflow = "unset");
-  }, [cartOpen]);
-
   const countItem = count === 1 ? `${count} item` : `${count} items`;
 
   const history = useHistory();
