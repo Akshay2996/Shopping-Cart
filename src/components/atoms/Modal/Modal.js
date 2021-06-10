@@ -17,10 +17,12 @@ export default function Modal({ children }) {
     if (cartOpen) {
       setElementRef(ref);
       document.body.style.overflow = "hidden";
-    } else {
+    }
+
+    return () => {
       setElementRef(null);
       document.body.style.overflow = "unset";
-    }
+    };
   }, [cartOpen]);
 
   return ReactDom.createPortal(
