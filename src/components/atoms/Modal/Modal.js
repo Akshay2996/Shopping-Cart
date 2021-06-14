@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactDom from "react-dom";
 import { GlobalContext } from "../../../contexts/GlobalContext";
+import useFocusTrap from "../../../utils/useFocusTrap";
 import "./Modal.scss";
 
 export default function Modal({ children }) {
@@ -10,43 +11,19 @@ export default function Modal({ children }) {
   } = useContext(GlobalContext);
 
   const ref = useRef(null);
-
-  const keyDownHandler = (e) => {
-    const modal = document.querySelector("#portal");
-
-    const focusableElements = modal.querySelectorAll(
-      `button, a[href], input, select, textarea`
-    );
-
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-
-    if (e.key !== "Tab") return;
-
-    if (!e.shiftKey && document.activeElement === lastElement) {
-      firstElement.focus();
-      e.preventDefault();
-    }
-
-    if (e.shiftKey && document.activeElement === firstElement) {
-      lastElement.focus();
-      e.preventDefault();
-    }
-  };
+  const setElementRef = useFocusTrap(null);
 
   useEffect(() => {
     if (cartOpen) {
-      const modal = document.querySelector("#portal");
-      const focusableElements = `button, a[href], input, select, textarea`;
-
-      const firstElement = modal.querySelectorAll(focusableElements)[0];
-      firstElement.focus();
-
-      ref?.current?.addEventListener("keydown", keyDownHandler);
+      setElementRef(ref);
+      document.body.style.overflow = "hidden";
     }
 
-    return () => ref?.current?.removeEventListener("keydown", keyDownHandler);
-  }, [ref, cartOpen]);
+    return () => {
+      setElementRef(null);
+      document.body.style.overflow = "unset";
+    };
+  }, [cartOpen]);
 
   return ReactDom.createPortal(
     <div className="modal" ref={ref}>

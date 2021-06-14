@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 
 export default function Dropdown({ items, handleProduct }) {
   const [isActive, setIsActive] = useState(true);
-  const [name, setName] = useState();
+  const [name, setName] = useState("All Products");
   const location = useLocation();
 
   useEffect(() => {

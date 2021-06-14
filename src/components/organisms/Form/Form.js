@@ -9,7 +9,11 @@ export default function Form({ className = "", inputLabel, button }) {
   };
 
   return (
-    <form className={`${className} form`} onSubmit={handleSubmit}>
+    <form
+      className={`${className} form`}
+      onSubmit={handleSubmit}
+      autoComplete="off"
+    >
       {inputLabel.map((input) => (
         <Inputbox
           key={input.inputId}
