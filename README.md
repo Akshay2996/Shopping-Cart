@@ -1,15 +1,44 @@
-# XT Shopping Cart Assignment
+# Sabka Bazaar
 
-This is the base folder for the shopping cart exercise. You will have all the static assets and mock server responses available in this repo.
+An Ecommerce site where you can shop for your daily groceries & more.
 
-## Getting Started
+**Tech Stack** - (React, Sass, Webpack)
 
-Clone this repo and run following command for starting the mock server:
+**Dependencies**
 
+- React
+- React Router
+
+## Documentation
+
+For detailed analysis of the project go to [Documentation](./Documentation.md)
+
+## Deployment
+
+Deployed the project to Netlify. See the [Site](https://sabkabazaar-shopping.netlify.app/)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Akshay2996/Shopping-Cart.git
 ```
-npm install
-npm run start
-# or
-yarn install
-yarn start
+
+Go to the project directory & Install dependencies
+
+```bash
+  cd Shopping-Cart
+  npm install
 ```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+## Badges
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/05d867f0-a3ea-471c-83db-4df0b82a33f8/deploy-status)](https://app.netlify.com/sites/sabkabazaar-shopping/deploys)
