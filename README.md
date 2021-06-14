@@ -35,7 +35,7 @@ Go to the project directory & Install dependencies
 Start the server
 
 ```bash
-  npm run dev
+  npm run start
 ```
 
 ## Badges
