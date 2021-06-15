@@ -39,7 +39,11 @@ export default function Card({ name, imageUrl, price, stock, text, id }) {
     <section className="card-container">
       <h2 className="card-container__title">{name}</h2>
       <figure className="card-container__image">
-        <Image source={imageUrl} alt="Fruit Pic" className={"product-image"} />
+        <Image
+          source={imageUrl}
+          alt={`Image of ${name}`}
+          className={"product-image"}
+        />
       </figure>
       <p className="card-container__text" title={text}>
         {text}
