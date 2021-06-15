@@ -78,3 +78,4 @@ What are the learnings & challenges I faced while building this project?
 - Global State Management (Context API)
 - React Portal for Cart Modal
 - Focus Trap & why it is important?
+- Javascript new concepts - ES6 & above (Optional Chaining, Template literals, Object.values etc.)

@@ -26,16 +26,7 @@ export default function CardTablet({ className = "", count, products }) {
         <>
           <section className="cart-tablet__section-wrapper">
             {Object.values(products).map((product) => {
-              return (
-                <CartSection
-                  key={product.id}
-                  id={product.id}
-                  imageUrl={product.imageUrl}
-                  name={product.name}
-                  price={product.price}
-                  quantity={product.quantity}
-                />
-              );
+              return <CartSection key={product?.id} product={product} />;
             })}
 
             <div className="cart-tablet__discount">

@@ -3,7 +3,7 @@ import "./Counter.scss";
 import Button from "../../atoms/Button/Button";
 import { GlobalContext } from "../../../contexts/GlobalContext";
 
-export default function Counter({ quantity, price, id }) {
+export default function Counter({ quantity, price, id, stock }) {
   const { dispatch } = useContext(GlobalContext);
 
   const editItem = () => {
@@ -26,7 +26,11 @@ export default function Counter({ quantity, price, id }) {
         -
       </Button>
       <p className="counter__text">{quantity}</p>
-      <Button onClick={() => editItem()} className={"counter__button"}>
+      <Button
+        onClick={() => editItem()}
+        className={"counter__button"}
+        disabled={stock === quantity}
+      >
         +
       </Button>
       <p className="counter__multiply">&#10005;</p>

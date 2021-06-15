@@ -19,6 +19,11 @@
     left: 0.6px;
   }
 
+  &:disabled {
+    background-color: $secondary-color;
+    cursor: not-allowed;
+  }
+
   @media screen and (max-width: $breakpoint-mobile) {
     font-size: $small-font-size;
     padding: 0.4rem;
