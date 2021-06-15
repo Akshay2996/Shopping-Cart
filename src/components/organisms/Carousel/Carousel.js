@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Carousel.scss";
 import ImageData from "../../../../server/banners/index.get.json";
 import Image from "../../atoms/Image/Image";
+import Button from "../../atoms/Button/Button";
 
 export default function Carousel() {
   const [current, setCurrent] = useState(1);
@@ -72,7 +73,7 @@ export default function Carousel() {
       </button>
       <div className="carousel__nav">
         {ImageData.map((data) => (
-          <button
+          <Button
             key={data.id}
             className={
               data.order === current
@@ -81,7 +82,7 @@ export default function Carousel() {
             }
             onClick={() => handleSlide(data.order)}
             aria-label={data.bannerImageAlt}
-          ></button>
+          ></Button>
         ))}
       </div>
     </section>
