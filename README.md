@@ -2,7 +2,10 @@
 
 An Ecommerce site where you can shop for your daily groceries & more.
 
-**Tech Stack** - (React, Sass, Webpack)
+**Tech Stack**
+- React
+- Sass
+- Webpack Bundler
 
 **Dependencies**
 
