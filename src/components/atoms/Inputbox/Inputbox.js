@@ -1,6 +1,8 @@
 import React from "react";
 import "./Inputbox.scss";
-export default function Inputbox({ type, placeholder, inputId }) {
+export default function Inputbox({ input, handleChange, values, errors }) {
+  const { type, placeholder, inputId } = input;
+
   return (
     <>
       <input
@@ -8,11 +10,18 @@ export default function Inputbox({ type, placeholder, inputId }) {
         className="floating-input"
         id={inputId}
         placeholder={placeholder}
-        required
+        name={inputId}
+        value={values}
+        onChange={handleChange}
+        noValidate
       />
-      <label htmlFor={inputId} className="floating-label">
-        {placeholder}
-      </label>
+      {errors ? (
+        <p className="form-error">{errors}</p>
+      ) : (
+        <label htmlFor={inputId} className="floating-label">
+          {placeholder}
+        </label>
+      )}
     </>
   );
 }

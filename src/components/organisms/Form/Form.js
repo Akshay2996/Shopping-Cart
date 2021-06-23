@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import "./Form.scss";
 import Button from "../../atoms/Button/Button";
 import Inputbox from "../../atoms/Inputbox/Inputbox";
+import useForm from "../../../utils/useForm";
+import validate from "../../../utils/validateForm";
 
 export default function Form({ className = "", inputLabel, button }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const { handleChange, values, handleSubmit, errors } = useForm(validate);
 
   return (
     <form
@@ -17,9 +17,10 @@ export default function Form({ className = "", inputLabel, button }) {
       {inputLabel.map((input) => (
         <Inputbox
           key={input.inputId}
-          type={input.type}
-          placeholder={input.placeholder}
-          inputId={input.inputId}
+          input={input}
+          handleChange={handleChange}
+          values={values[input.inputId]}
+          errors={errors[input.inputId]}
         />
       ))}
       <Button className={"form__login-button"}>{button}</Button>
