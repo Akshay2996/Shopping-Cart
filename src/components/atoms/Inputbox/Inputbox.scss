@@ -51,3 +51,11 @@
     }
   }
 }
+
+.form-error {
+  color: red;
+  height: 2rem;
+  font-size: $text-font-size;
+  margin-bottom: 0.4rem;
+  margin-top: 0.2rem;
+}
